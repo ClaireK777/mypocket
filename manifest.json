@@ -1,0 +1,13 @@
+{
+  "name": "MyPocket",
+  "short_name": "MyPocket",
+  "description": "個人記帳與理財分析",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5A623",
+  "theme_color": "#F5A623",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
