@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MyPocket">
+<meta name="theme-color" content="#F5A623">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>MyPocket</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#F5F6FA;
+  --surface:#FFFFFF;
+  --surface2:#F0F1F6;
+  --amber:#E8920A;
+  --amber-light:#FFF3DC;
+  --amber-btn:#F5A623;
+  --sage:#2A9D72;
+  --sage-light:#E8F7F1;
+  --coral:#D95A3E;
+  --coral-light:#FDEEE9;
+  --text:#1A1D23;
+  --text2:#7A8099;
+  --text3:#A8AEBF;
+  --border:#E4E7F0;
+  --border2:#D0D4E4;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow:0 1px 4px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.04);
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow:hidden}
+#app{display:flex;flex-direction:column;height:100%;max-width:430px;margin:0 auto;position:relative}
+
+/* TOP BAR */
+.top-bar{padding:14px 20px 10px;display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:36px;height:36px;flex-shrink:0}
+.logo-text{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:var(--text)}
+.today-chip{font-size:12px;color:var(--text2);background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 10px}
+
+/* BOTTOM TAB */
+.tab-bar{display:flex;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 14px}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:none;color:var(--text3);font-size:11px;font-family:'Inter',sans-serif;cursor:pointer;transition:color .2s;padding:4px 0}
+.tab.active{color:var(--amber)}
+.tab svg{width:22px;height:22px;stroke-width:1.8}
+
+/* PAGES */
+.pages{flex:1;overflow:hidden;position:relative}
+.page{position:absolute;inset:0;overflow-y:auto;padding:0 14px 14px;display:none;background:var(--bg)}
+.page.active{display:block}
+
+/* FORM CARD */
+.form-card{background:var(--surface);border-radius:var(--radius);padding:18px;margin-bottom:12px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.form-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;margin-bottom:16px;color:var(--text)}
+.type-toggle{display:flex;background:var(--surface2);border-radius:var(--radius-sm);padding:3px;margin-bottom:16px;border:1px solid var(--border)}
+.type-btn{flex:1;padding:8px;border:none;border-radius:8px;font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;background:none;color:var(--text2)}
+.type-btn.active-income{background:var(--sage);color:#fff;box-shadow:0 1px 4px rgba(42,157,114,.3)}
+.type-btn.active-expense{background:var(--coral);color:#fff;box-shadow:0 1px 4px rgba(217,90,62,.3)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.field-full{margin-bottom:12px}
+label{display:block;font-size:11px;color:var(--text2);margin-bottom:5px;font-weight:500;letter-spacing:.3px}
+input,select{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:9px 11px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+input:focus,select:focus{border-color:var(--amber);background:#fff}
+.cat-row{display:flex;gap:6px;align-items:center}
+.cat-row select{flex:1}
+.cat-add-btn{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-sm);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--text2);flex-shrink:0;transition:border-color .2s}
+.cat-add-btn:hover{border-color:var(--amber);color:var(--amber)}
+.add-btn{width:100%;padding:12px;background:var(--amber-btn);border:none;border-radius:var(--radius-sm);color:#fff;font-size:15px;font-weight:600;font-family:'Sora',sans-serif;cursor:pointer;transition:opacity .2s;box-shadow:0 2px 8px rgba(245,166,35,.35)}
+.add-btn:active{opacity:.85}
+
+/* CUSTOM CAT MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,29,35,.45);z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.modal-box{background:var(--surface);border-radius:var(--radius) var(--radius) 0 0;padding:22px 18px 32px;width:100%;max-width:430px;border-top:1px solid var(--border)}
+.modal-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;margin-bottom:16px}
+.modal-input-row{display:flex;gap:8px;margin-bottom:12px}
+.modal-input-row input{flex:1}
+.modal-confirm{background:var(--amber-btn);color:#fff;border:none;border-radius:var(--radius-sm);padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.modal-cancel{background:var(--surface2);color:var(--text2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 14px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif}
+.custom-cat-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ccat-chip{display:flex;align-items:center;gap:5px;background:var(--amber-light);border:1px solid #f0d18a;border-radius:20px;padding:4px 10px;font-size:12px;color:var(--amber)}
+.ccat-chip button{background:none;border:none;cursor:pointer;font-size:14px;color:var(--amber);opacity:.7;line-height:1;padding:0}
+
+/* TODAY RECORDS */
+.day-header{display:flex;align-items:center;justify-content:space-between;padding:14px 0 8px}
+.day-title{font-size:13px;font-weight:600;color:var(--text)}
+.day-sum{font-size:12px;color:var(--text2)}
+.record{display:flex;align-items:center;background:var(--surface);border-radius:var(--radius-sm);padding:11px 13px;margin-bottom:7px;border:1px solid var(--border);box-shadow:var(--shadow);gap:11px}
+.record-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.record-info{flex:1;min-width:0}
+.record-cat{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.record-note{font-size:11px;color:var(--text2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.record-amt{font-size:14px;font-weight:600;font-family:'Sora',sans-serif;flex-shrink:0}
+.income-color{color:var(--sage)}
+.expense-color{color:var(--coral)}
+.del-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;padding:4px;transition:color .2s;flex-shrink:0}
+.del-btn:hover{color:var(--coral)}
+.empty{text-align:center;padding:36px 20px;color:var(--text2);font-size:14px;line-height:1.8}
+
+/* STATS PAGE */
+.stat-month-nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:14px 0 12px}
+.nav-arrow{background:var(--surface);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);font-size:16px;box-shadow:var(--shadow);transition:border-color .2s}
+.nav-arrow:hover{border-color:var(--amber);color:var(--amber)}
+.month-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:var(--text)}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.summary-card{background:var(--surface);border-radius:var(--radius-sm);padding:13px 14px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.summary-card.full{grid-column:1/-1}
+.sc-label{font-size:11px;color:var(--text2);font-weight:500;margin-bottom:5px;letter-spacing:.3px}
+.sc-value{font-family:'Sora',sans-serif;font-size:20px;font-weight:700}
+.sc-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.chart-wrap{background:var(--surface);border-radius:var(--radius);padding:14px;margin-bottom:12px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.chart-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px}
+
+/* DONUT — compact side-by-side layout */
+.donut-row{display:flex;align-items:center;gap:14px}
+.donut-canvas-wrap{width:110px;height:110px;flex-shrink:0}
+.donut-legend{flex:1;display:flex;flex-direction:column;gap:7px}
+.legend-item{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12px}
+.legend-left{display:flex;align-items:center;gap:6px;color:var(--text)}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.legend-val{font-size:12px;font-weight:600;color:var(--text);font-family:'Sora',sans-serif}
+
+/* BAR */
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.bar-cat{font-size:11px;color:var(--text2);width:52px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;background:var(--surface2);border-radius:4px;height:7px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.bar-val{font-size:11px;font-weight:600;width:52px;color:var(--text);flex-shrink:0}
+
+/* AI ADVISOR CHAT */
+.advice-card{background:linear-gradient(160deg,#FFFBF2 0%,#FEF5E2 100%);border-radius:var(--radius);margin-bottom:12px;border:1px solid #F0D899;overflow:hidden}
+.advice-header{display:flex;align-items:center;justify-content:space-between;padding:13px 14px 10px;border-bottom:1px solid #F0D89966}
+.advice-header-left{display:flex;align-items:center;gap:8px}
+.advice-icon{font-size:17px}
+.advice-title{font-size:13px;font-weight:600;color:var(--amber)}
+.online-dot{width:7px;height:7px;border-radius:50%;background:#bbb;flex-shrink:0;transition:background .4s}
+.online-dot.online{background:#2A9D72}
+.online-dot.offline{background:#aaa}
+.online-status{font-size:10px;color:var(--text2)}
+
+/* CHAT MESSAGES */
+.chat-messages{max-height:260px;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.chat-msg{display:flex;flex-direction:column;max-width:88%}
+.chat-msg.ai{align-self:flex-start}
+.chat-msg.user{align-self:flex-end}
+.chat-bubble{padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.65}
+.chat-bubble.ai{background:#fff;border:1px solid #F0D899;color:#5a3e00;border-bottom-left-radius:3px}
+.chat-bubble.user{background:var(--amber-btn);color:#fff;border-bottom-right-radius:3px}
+.chat-time{font-size:10px;color:var(--text3);margin-top:2px;padding:0 2px}
+.chat-msg.user .chat-time{text-align:right}
+.advice-loading{font-size:12.5px;color:var(--text2);display:flex;align-items:center;gap:7px;padding:8px 12px}
+.dot-spin{display:inline-flex;gap:3px}
+.dot-spin span{width:5px;height:5px;background:var(--amber);border-radius:50%;animation:bounce .9s infinite}
+.dot-spin span:nth-child(2){animation-delay:.2s}
+.dot-spin span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+
+/* QUICK QUESTIONS */
+.quick-questions{display:flex;gap:5px;flex-wrap:wrap;padding:0 12px 8px}
+.quick-btn{background:#fff;border:1px solid #F0D899;border-radius:20px;padding:5px 10px;font-size:11px;color:var(--amber);cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;white-space:nowrap}
+.quick-btn:hover{background:var(--amber-light)}
+
+/* CHAT INPUT */
+.chat-input-row{display:flex;gap:6px;padding:8px 10px 12px;border-top:1px solid #F0D89966}
+.chat-input{flex:1;background:#fff;border:1.5px solid #F0D899;border-radius:20px;padding:8px 13px;font-size:13px;font-family:'Inter',sans-serif;outline:none;color:var(--text)}
+.chat-input:focus{border-color:var(--amber)}
+.chat-send{background:var(--amber-btn);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity .2s}
+.chat-send:active{opacity:.8}
+.chat-send svg{width:16px;height:16px;stroke:#fff;stroke-width:2;fill:none}
+
+/* TREND */
+canvas{width:100%!important}
+
+/* BADGE */
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.badge-income{background:var(--sage-light);color:var(--sage)}
+.badge-expense{background:var(--coral-light);color:var(--coral)}
+
+/* TOAST */
+.toast{position:fixed;bottom:86px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--text);color:#fff;border-radius:var(--radius-sm);padding:9px 18px;font-size:13px;opacity:0;transition:all .25s;pointer-events:none;z-index:999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Amber background -->
+        <rect width="36" height="36" rx="9" fill="#F5A623"/>
+        <!-- Wallet body (white rounded rect) -->
+        <rect x="5" y="11" width="26" height="17" rx="4.5" fill="#fff"/>
+        <!-- Card slot line at top of wallet -->
+        <rect x="8" y="14.5" width="14" height="2.2" rx="1.1" fill="#F5A623" opacity=".55"/>
+        <!-- Coin pocket: right circle -->
+        <circle cx="25.5" cy="19.5" r="4.5" fill="#F5A623"/>
+        <circle cx="25.5" cy="19.5" r="3" fill="#E8920A" opacity=".45"/>
+        <!-- 4-point star top-left -->
+        <path d="M8.5 9 L9.2 7 L9.9 9 L11.9 9.7 L9.9 10.4 L9.2 12.4 L8.5 10.4 L6.5 9.7 Z" fill="#fff" opacity=".95"/>
+      </svg>
+      <span class="logo-text">MyPocket</span>
+    </div>
+    <div class="today-chip" id="today-label"></div>
+  </div>
+
+  <!-- PAGES -->
+  <div class="pages">
+
+    <!-- PAGE 1: ADD + TODAY'S RECORDS -->
+    <div class="page active" id="page-add">
+      <div style="height:12px"></div>
+      <div class="form-card">
+        <div class="form-title">新增紀錄</div>
+        <div class="type-toggle">
+          <button class="type-btn active-income" id="btn-income" onclick="setType('income')">💰 收入</button>
+          <button class="type-btn" id="btn-expense" onclick="setType('expense')">💸 支出</button>
+        </div>
+        <div class="field-row">
+          <div>
+            <label>日期</label>
+            <input type="date" id="f-date" onchange="renderTodayRecords()"/>
+          </div>
+          <div>
+            <label>金額 (NT$)</label>
+            <input type="number" id="f-amount" placeholder="0" min="0"/>
+          </div>
+        </div>
+        <div class="field-full">
+          <label>類別</label>
+          <div class="cat-row">
+            <select id="f-cat"></select>
+            <button class="cat-add-btn" onclick="openCatModal()" title="自訂類別">＋</button>
+          </div>
+        </div>
+        <div class="field-full">
+          <label>備註（選填）</label>
+          <input type="text" id="f-note" placeholder="輸入備註…"/>
+        </div>
+        <button class="add-btn" onclick="addRecord()">＋ 新增紀錄</button>
+      </div>
+
+      <!-- TODAY'S RECORDS -->
+      <div class="day-header">
+        <div class="day-title" id="today-records-title">今日紀錄</div>
+        <div class="day-sum" id="today-records-sum"></div>
+      </div>
+      <div id="record-list"></div>
+    </div>
+
+    <!-- PAGE 2: STATS -->
+    <div class="page" id="page-stats">
+      <div class="stat-month-nav">
+        <div class="nav-arrow" onclick="changeMonth(-1)">&#8249;</div>
+        <div class="month-title" id="stats-month-label"></div>
+        <div class="nav-arrow" onclick="changeMonth(1)">&#8250;</div>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="sc-label">總收入</div>
+          <div class="sc-value income-color" id="s-income">$0</div>
+          <div class="sc-sub" id="s-income-cnt">0 筆</div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-label">總支出</div>
+          <div class="sc-value expense-color" id="s-expense">$0</div>
+          <div class="sc-sub" id="s-expense-cnt">0 筆</div>
+        </div>
+        <div class="summary-card full">
+          <div class="sc-label">本月結餘</div>
+          <div class="sc-value" id="s-balance">$0</div>
+          <div class="sc-sub" id="s-rate">儲蓄率 –</div>
+        </div>
+      </div>
+
+      <!-- AI 理財顧問聊天 -->
+      <div class="advice-card" id="advice-card">
+        <div class="advice-header">
+          <div class="advice-header-left">
+            <span class="advice-icon">💡</span>
+            <span class="advice-title">理財顧問</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px">
+            <div class="online-dot offline" id="online-dot"></div>
+            <span class="online-status" id="online-status">連線中…</span>
+          </div>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="quick-questions" id="quick-questions">
+          <button class="quick-btn" onclick="sendQuick('我這個月花費合理嗎？')">花費合理嗎？</button>
+          <button class="quick-btn" onclick="sendQuick('哪個類別可以節省？')">哪裡能省錢？</button>
+          <button class="quick-btn" onclick="sendQuick('如何提升我的儲蓄率？')">提升儲蓄率</button>
+          <button class="quick-btn" onclick="sendQuick('下個月我應該注意什麼？')">下月建議</button>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" type="text" placeholder="輸入問題…" maxlength="80" onkeydown="if(event.key==='Enter')sendChat()"/>
+          <button class="chat-send" onclick="sendChat()">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Donut -->
+      <div class="chart-wrap">
+        <div class="chart-title">支出分類佔比</div>
+        <div class="donut-row">
+          <div class="donut-canvas-wrap"><canvas id="donut-chart"></canvas></div>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+
+      <!-- Bar -->
+      <div class="chart-wrap">
+        <div class="chart-title">分類支出明細</div>
+        <div id="bar-chart"></div>
+      </div>
+
+      <!-- Trend -->
+      <div class="chart-wrap">
+        <div class="chart-title">近 6 個月趨勢</div>
+        <canvas id="trend-chart" height="170"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab active" id="tab-add" onclick="switchTab('add')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      記帳
+    </button>
+    <button class="tab" id="tab-stats" onclick="switchTab('stats')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="13" width="4" height="8" rx="1"/><rect x="10" y="9" width="4" height="12" rx="1"/><rect x="17" y="5" width="4" height="16" rx="1"/></svg>
+      統計
+    </button>
+  </div>
+</div>
+
+<!-- CUSTOM CATEGORY MODAL -->
+<div class="modal-overlay" id="cat-modal" style="display:none" onclick="closeCatModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-title">自訂類別</div>
+    <div class="modal-input-row">
+      <input type="text" id="new-cat-input" placeholder="輸入新類別名稱…" maxlength="12"/>
+      <button class="modal-confirm" onclick="addCustomCat()">新增</button>
+    </div>
+    <div class="custom-cat-list" id="custom-cat-list"></div>
+    <div style="margin-top:18px;display:flex;justify-content:flex-end">
+      <button class="modal-cancel" onclick="closeCatModal()">完成</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const RKEY = 'mypocket_records_v2';
+const CKEY = 'mypocket_custom_cats';
+const DEFAULT_CATS = {
+  income:  ['薪資','獎金','投資','副業','其他收入'],
+  expense: ['餐飲','交通','購物','娛樂','醫療','住房','教育','旅遊','其他支出']
+};
+const CAT_COLORS = ['#F5A623','#2A9D72','#D95A3E','#5B8DD9','#9B72CF','#3BBCCC','#D4845A','#6DC47A','#C45B8A','#8A9BB5'];
+const ICONS = {'薪資':'💼','獎金':'🎁','投資':'📈','副業':'🛠','其他收入':'💰','餐飲':'🍜','交通':'🚌','購物':'🛍','娛樂':'🎮','醫療':'💊','住房':'🏠','教育':'📚','旅遊':'✈️','其他支出':'💸'};
+
+let records = JSON.parse(localStorage.getItem(RKEY)||'[]');
+let customCats = JSON.parse(localStorage.getItem(CKEY)||'{"income":[],"expense":[]}');
+let currentType = 'income';
+let statsMonth = new Date();
+let donutChart = null, trendChart = null;
+
+
+const today = new Date();
+const todayStr = today.toISOString().split('T')[0];
+
+// Init
+document.getElementById('f-date').value = todayStr;
+document.getElementById('today-label').textContent = today.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'short'});
+statsMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+updateCatSelect();
+renderTodayRecords();
+updateStatsMonthLabel();
+
+function save(){ localStorage.setItem(RKEY, JSON.stringify(records)); }
+function saveCats(){ localStorage.setItem(CKEY, JSON.stringify(customCats)); }
+
+function allCats(type){ return [...DEFAULT_CATS[type], ...customCats[type]]; }
+
+function setType(t){
+  currentType = t;
+  document.getElementById('btn-income').className = 'type-btn'+(t==='income'?' active-income':'');
+  document.getElementById('btn-expense').className = 'type-btn'+(t==='expense'?' active-expense':'');
+  updateCatSelect();
+}
+
+function updateCatSelect(){
+  const sel = document.getElementById('f-cat');
+  sel.innerHTML = allCats(currentType).map(c=>`<option>${c}</option>`).join('');
+}
+
+// Custom category modal
+function openCatModal(){
+  renderCustomCatList();
+  document.getElementById('cat-modal').style.display='flex';
+}
+function closeCatModal(e){
+  if(!e||e.target===document.getElementById('cat-modal'))
+    document.getElementById('cat-modal').style.display='none';
+  updateCatSelect();
+}
+function renderCustomCatList(){
+  const all = [...customCats.income.map(c=>({c,t:'income'})), ...customCats.expense.map(c=>({c,t:'expense'}))];
+  document.getElementById('custom-cat-list').innerHTML = all.length
+    ? all.map(({c,t})=>`<div class="ccat-chip">${t==='income'?'💰':'💸'} ${c}<button onclick="removeCustomCat('${t}','${c}')">×</button></div>`).join('')
+    : '<div style="font-size:12px;color:var(--text3)">尚未新增自訂類別</div>';
+}
+function addCustomCat(){
+  const inp = document.getElementById('new-cat-input');
+  const name = inp.value.trim();
+  if(!name){ showToast('請輸入類別名稱'); return; }
+  if(allCats(currentType).includes(name)){ showToast('類別已存在'); return; }
+  customCats[currentType].push(name);
+  saveCats();
+  inp.value = '';
+  renderCustomCatList();
+  showToast('✓ 已新增「'+name+'」');
+}
+function removeCustomCat(type, name){
+  customCats[type] = customCats[type].filter(c=>c!==name);
+  saveCats();
+  renderCustomCatList();
+}
+
+// Add record
+function addRecord(){
+  const date = document.getElementById('f-date').value;
+  const amount = parseFloat(document.getElementById('f-amount').value);
+  const cat = document.getElementById('f-cat').value;
+  const note = document.getElementById('f-note').value.trim();
+  if(!date||!amount||amount<=0){ showToast('請填寫日期和金額'); return; }
+  records.unshift({id:Date.now(), date, type:currentType, cat, amount, note});
+  save();
+  renderTodayRecords();
+  document.getElementById('f-amount').value='';
+  document.getElementById('f-note').value='';
+  showToast('✓ 已新增');
+}
+
+function deleteRecord(id){
+  records = records.filter(r=>r.id!==id);
+  save();
+  renderTodayRecords();
+}
+
+// Only show today's records
+function renderTodayRecords(){
+  const selectedDate = document.getElementById('f-date').value || todayStr;
+  const list = document.getElementById('record-list');
+  const dateRecs = records.filter(r=>r.date===selectedDate);
+  const title = document.getElementById('today-records-title');
+  const sumEl = document.getElementById('today-records-sum');
+
+  if(selectedDate===todayStr){
+    title.textContent='今日紀錄';
+  } else {
+    const d=new Date(selectedDate+'T00:00:00');
+    title.textContent=d.toLocaleDateString('zh-TW',{month:'long',day:'numeric',weekday:'short'})+' 的紀錄';
+  }
+
+  if(!dateRecs.length){
+    sumEl.textContent='';
+    list.innerHTML='<div class="empty">這天還沒有任何紀錄<br><small style="color:var(--text3)">在上方新增吧！</small></div>';
+    return;
+  }
+  const dayExp=dateRecs.filter(r=>r.type==='expense').reduce((s,r)=>s+r.amount,0);
+  const dayInc=dateRecs.filter(r=>r.type==='income').reduce((s,r)=>s+r.amount,0);
+  sumEl.textContent=(dayInc?'+$'+dayInc.toLocaleString()+' ':'')+(dayExp?'−$'+dayExp.toLocaleString():'');
+  list.innerHTML=dateRecs.map(r=>`
+    <div class="record">
+      <div class="record-icon" style="background:${r.type==='income'?'var(--sage-light)':'var(--coral-light)'}">${ICONS[r.cat]||'💵'}</div>
+      <div class="record-info">
+        <div class="record-cat">${r.cat}</div>
+        <div class="record-note">${r.note||'&nbsp;'}</div>
+      </div>
+      <div class="record-amt ${r.type==='income'?'income-color':'expense-color'}">${r.type==='income'?'+':'−'}$${r.amount.toLocaleString()}</div>
+      <button class="del-btn" onclick="deleteRecord(${r.id})">×</button>
+    </div>
+  `).join('');
+}
+
+function switchTab(t){
+  document.getElementById('page-add').className='page'+(t==='add'?' active':'');
+  document.getElementById('page-stats').className='page'+(t==='stats'?' active':'');
+  document.getElementById('tab-add').className='tab'+(t==='add'?' active':'');
+  document.getElementById('tab-stats').className='tab'+(t==='stats'?' active':'');
+  if(t==='stats'){ renderStats(); initAdvisor(); }
+}
+
+function changeMonth(d){
+  statsMonth=new Date(statsMonth.getFullYear(),statsMonth.getMonth()+d,1);
+  updateStatsMonthLabel();
+  renderStats();
+  resetAdvisor();
+  initAdvisor();
+}
+
+function updateStatsMonthLabel(){
+  document.getElementById('stats-month-label').textContent =
+    statsMonth.toLocaleDateString('zh-TW',{year:'numeric',month:'long'});
+}
+
+function monthRecords(){
+  const y=statsMonth.getFullYear(), m=statsMonth.getMonth();
+  return records.filter(r=>{ const d=new Date(r.date); return d.getFullYear()===y&&d.getMonth()===m; });
+}
+
+function renderStats(){
+  const mrs = monthRecords();
+  const totalIncome  = mrs.filter(r=>r.type==='income').reduce((s,r)=>s+r.amount,0);
+  const totalExpense = mrs.filter(r=>r.type==='expense').reduce((s,r)=>s+r.amount,0);
+  const balance = totalIncome - totalExpense;
+  const rate = totalIncome>0 ? Math.round(balance/totalIncome*100) : 0;
+
+  document.getElementById('s-income').textContent='$'+totalIncome.toLocaleString();
+  document.getElementById('s-expense').textContent='$'+totalExpense.toLocaleString();
+  document.getElementById('s-income-cnt').textContent=mrs.filter(r=>r.type==='income').length+' 筆';
+  document.getElementById('s-expense-cnt').textContent=mrs.filter(r=>r.type==='expense').length+' 筆';
+  const balEl=document.getElementById('s-balance');
+  balEl.textContent=(balance>=0?'+':'')+'$'+balance.toLocaleString();
+  balEl.style.color=balance>=0?'var(--sage)':'var(--coral)';
+  document.getElementById('s-rate').textContent='儲蓄率 '+(totalIncome>0?rate+'%':'–');
+
+  // Donut
+  const expCats={};
+  mrs.filter(r=>r.type==='expense').forEach(r=>{ expCats[r.cat]=(expCats[r.cat]||0)+r.amount; });
+  const catLabels=Object.keys(expCats).sort((a,b)=>expCats[b]-expCats[a]);
+  const catVals=catLabels.map(c=>expCats[c]);
+  const colors=CAT_COLORS.slice(0,catLabels.length);
+
+  if(donutChart) donutChart.destroy();
+  const dCtx=document.getElementById('donut-chart').getContext('2d');
+  if(catLabels.length){
+    donutChart=new Chart(dCtx,{
+      type:'doughnut',
+      data:{labels:catLabels,datasets:[{data:catVals,backgroundColor:colors,borderWidth:2,borderColor:'#fff',hoverOffset:3}]},
+      options:{cutout:'62%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`$${c.parsed.toLocaleString()}`}}},animation:{duration:500}}
+    });
+    const total=catVals.reduce((a,b)=>a+b,0);
+    document.getElementById('donut-legend').innerHTML=catLabels.map((l,i)=>`
+      <div class="legend-item">
+        <div class="legend-left"><div class="legend-dot" style="background:${colors[i]}"></div>${l}</div>
+        <div class="legend-val">$${catVals[i].toLocaleString()}</div>
+      </div>`).join('');
+  } else {
+    dCtx.clearRect(0,0,110,110);
+    document.getElementById('donut-legend').innerHTML='<div style="font-size:12px;color:var(--text2)">本月無支出紀錄</div>';
+  }
+
+  // Bar
+  const maxVal=Math.max(...catVals,1);
+  document.getElementById('bar-chart').innerHTML=catLabels.length
+    ? catLabels.map((l,i)=>`
+      <div class="bar-row">
+        <div class="bar-cat">${l}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.round(catVals[i]/maxVal*100)}%;background:${colors[i]}"></div></div>
+        <div class="bar-val">$${catVals[i].toLocaleString()}</div>
+      </div>`).join('')
+    : '<div style="color:var(--text2);font-size:13px;text-align:center;padding:12px">本月無支出紀錄</div>';
+
+  // 6-month trend
+  const months6=[];
+  for(let i=5;i>=0;i--){
+    const d=new Date(statsMonth.getFullYear(),statsMonth.getMonth()-i,1);
+    const label=(d.getMonth()+1)+'月';
+    const inc=records.filter(r=>{ const rd=new Date(r.date); return rd.getFullYear()===d.getFullYear()&&rd.getMonth()===d.getMonth()&&r.type==='income'; }).reduce((s,r)=>s+r.amount,0);
+    const exp=records.filter(r=>{ const rd=new Date(r.date); return rd.getFullYear()===d.getFullYear()&&rd.getMonth()===d.getMonth()&&r.type==='expense'; }).reduce((s,r)=>s+r.amount,0);
+    months6.push({label,inc,exp});
+  }
+  if(trendChart) trendChart.destroy();
+  const tCtx=document.getElementById('trend-chart').getContext('2d');
+  trendChart=new Chart(tCtx,{
+    type:'line',
+    data:{
+      labels:months6.map(m=>m.label),
+      datasets:[
+        {label:'收入',data:months6.map(m=>m.inc),borderColor:'#2A9D72',backgroundColor:'rgba(42,157,114,.07)',tension:.4,pointRadius:3,pointBackgroundColor:'#2A9D72',fill:true,borderWidth:2},
+        {label:'支出',data:months6.map(m=>m.exp),borderColor:'#D95A3E',backgroundColor:'rgba(217,90,62,.07)',tension:.4,pointRadius:3,pointBackgroundColor:'#D95A3E',fill:true,borderWidth:2}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{labels:{color:'#7A8099',font:{size:11},boxWidth:10,padding:12}}},
+      scales:{
+        x:{ticks:{color:'#7A8099',font:{size:10}},grid:{color:'rgba(180,185,210,.3)'}},
+        y:{ticks:{color:'#7A8099',font:{size:10},callback:v=>'$'+v.toLocaleString()},grid:{color:'rgba(180,185,210,.3)'}}
+      },
+      animation:{duration:500}
+    }
+  });
+}
+
+// ── CHAT SYSTEM ────────────────────────────────────────────────
+let chatHistory = [];   // {role:'user'|'assistant', content:string}
+let isOnline = false;
+let chatInitialized = false;
+
+function getMonthContext(){
+  const mrs=monthRecords();
+  const totalIncome=mrs.filter(r=>r.type==='income').reduce((s,r)=>s+r.amount,0);
+  const totalExpense=mrs.filter(r=>r.type==='expense').reduce((s,r)=>s+r.amount,0);
+  const balance=totalIncome-totalExpense;
+  const rate=totalIncome>0?Math.round(balance/totalIncome*100):0;
+  const expCats={};
+  mrs.filter(r=>r.type==='expense').forEach(r=>{ expCats[r.cat]=(expCats[r.cat]||0)+r.amount; });
+  const topCat=Object.entries(expCats).sort((a,b)=>b[1]-a[1]);
+  const catStr=topCat.map(([k,v])=>`${k}:NT$${v.toLocaleString()}`).join('、')||'尚無支出';
+  return {totalIncome,totalExpense,balance,rate,topCat,catStr,mrs};
+}
+
+function getSystemPrompt(){
+  const c=getMonthContext();
+  const mn=statsMonth.toLocaleDateString('zh-TW',{year:'numeric',month:'long'});
+  return `你是 MyPocket APP 內建的親切理財顧問小幫手，說話簡潔溫和，使用繁體中文。
+以下是用戶${mn}的財務數據：
+• 收入：NT$${c.totalIncome.toLocaleString()}
+• 支出：NT$${c.totalExpense.toLocaleString()}
+• 結餘：NT$${c.balance.toLocaleString()}（儲蓄率 ${c.rate}%）
+• 支出分類：${c.catStr}
+請依據以上數據回答用戶問題。每次回覆不超過120字，重點清晰，可用1-2個emoji增加可讀性。`;
+}
+
+// ── Offline rule engine ─────────────────────────────────────────
+function offlineAnswer(q){
+  const c=getMonthContext();
+  const ql=q.toLowerCase();
+  const topCatName=c.topCat[0]?c.topCat[0][0]:'';
+  const topCatAmt=c.topCat[0]?c.topCat[0][1]:0;
+  const savePct=c.rate;
+  const balance=c.balance;
+
+  // 花費合理
+  if(ql.includes('合理')||ql.includes('花費')||ql.includes('支出正常')){
+    if(c.totalIncome===0) return '目前尚無收入紀錄，請先記錄本月收入，才能評估花費是否合理喔 📝';
+    if(savePct>=30) return `本月儲蓄率達 ${savePct}%，財務狀況相當健康！💪 繼續保持這個好習慣。`;
+    if(savePct>=10) return `本月儲蓄率 ${savePct}%，屬於中等水平。建議目標是 20% 以上，還有進步空間 📈`;
+    if(balance<0) return `本月支出超過收入 NT$${Math.abs(balance).toLocaleString()}，需要注意⚠️ 建議檢視「${topCatName}」等主要支出類別。`;
+    return `本月儲蓄率只有 ${savePct}%，偏低。建議減少非必要開銷，尤其是${topCatName}（NT$${topCatAmt.toLocaleString()}）💡`;
+  }
+  // 省錢
+  if(ql.includes('省')||ql.includes('節省')||ql.includes('哪個類別')||ql.includes('節約')){
+    if(!c.topCat.length) return '目前本月尚無支出紀錄，記帳後我就能幫你找出可以節省的類別 😊';
+    const top2=c.topCat.slice(0,2).map(([k,v])=>`「${k}」NT$${v.toLocaleString()}`).join(' 和 ');
+    return `本月支出最多的是 ${top2}，這兩項最有節省潛力 💰 可以設定每月預算上限來控制。`;
+  }
+  // 儲蓄率
+  if(ql.includes('儲蓄')||ql.includes('存錢')||ql.includes('提升')){
+    return `提升儲蓄率的三個方法：\n1️⃣ 先付自己——發薪後立即轉入儲蓄帳戶\n2️⃣ 設定每類支出預算，尤其「${topCatName}」\n3️⃣ 每週回顧帳單，找出衝動消費`;
+  }
+  // 下個月
+  if(ql.includes('下個月')||ql.includes('下月')||ql.includes('下一個月')){
+    const tip=balance<0?'首要任務是讓收支平衡，控制支出在收入以內。':'繼續記錄並嘗試把儲蓄率提升到20%以上。';
+    return `下個月建議：${tip}\n重點管控「${topCatName}」，並在月初就設好預算目標 📅`;
+  }
+  // 結餘/餘額
+  if(ql.includes('結餘')||ql.includes('餘額')||ql.includes('剩多少')||ql.includes('剩下')){
+    if(balance>0) return `本月結餘 NT$${balance.toLocaleString()}（儲蓄率 ${savePct}%）💚 建議將這筆錢轉入緊急備用金或投資帳戶。`;
+    if(balance===0) return '本月收支剛好平衡，沒有多餘儲蓄。建議下個月嘗試存下至少10%的收入 🎯';
+    return `本月超支 NT$${Math.abs(balance).toLocaleString()} ⚠️ 請優先減少「${topCatName}」的開銷，避免動用到緊急備用金。`;
+  }
+  // 收入
+  if(ql.includes('收入')||ql.includes('薪資')||ql.includes('賺')){
+    return `本月總收入 NT$${c.totalIncome.toLocaleString()}。若想提升收入，可考慮發展副業技能或投資理財 📈 有任何具體問題都可以問我！`;
+  }
+  // 通用
+  const tips=[
+    `根據你本月數據，${topCatName?'「'+topCatName+'」是最大支出項目，建議設定預算上限。':'記帳習慣很棒！持續追蹤有助於財務健康。'}`,
+    `本月儲蓄率 ${savePct}%。財務專家建議至少存下收入的20%，你可以從小目標開始 💪`,
+    `記帳是理財第一步，你已經做得很好了！下一步可以嘗試設定各類別的月度預算 📊`
+  ];
+  return tips[Math.floor(Math.random()*tips.length)];
+}
+
+// ── Check connectivity ──────────────────────────────────────────
+async function checkOnline(){
+  try {
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(3000)});
+    // Any response (even error) means network reachable
+    isOnline=true;
+  } catch(e){ isOnline=false; }
+  const dot=document.getElementById('online-dot');
+  const label=document.getElementById('online-status');
+  if(isOnline){ dot.className='online-dot online'; label.textContent='AI 連線中'; }
+  else { dot.className='online-dot offline'; label.textContent='離線模式'; }
+}
+
+// ── Render chat ─────────────────────────────────────────────────
+function renderChat(){
+  const box=document.getElementById('chat-messages');
+  if(!chatHistory.length){ box.innerHTML=''; return; }
+  box.innerHTML=chatHistory.map(m=>{
+    const t=new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+    return `<div class="chat-msg ${m.role==='user'?'user':'ai'}">
+      <div class="chat-bubble ${m.role==='user'?'user':'ai'}">${m.content.replace(/\n/g,'<br>')}</div>
+    </div>`;
+  }).join('');
+  box.scrollTop=box.scrollHeight;
+}
+
+function appendMessage(role, text){
+  chatHistory.push({role, content:text});
+  renderChat();
+}
+
+function showTyping(){
+  const box=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg ai'; div.id='typing-indicator';
+  div.innerHTML='<div class="advice-loading"><div class="dot-spin"><span></span><span></span><span></span></div></div>';
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+function hideTyping(){ document.getElementById('typing-indicator')?.remove(); }
+
+// ── Send message ────────────────────────────────────────────────
+async function sendChat(){
+  const inp=document.getElementById('chat-input');
+  const q=inp.value.trim();
+  if(!q) return;
+  inp.value='';
+  appendMessage('user', q);
+  showTyping();
+
+  if(!isOnline){
+    await new Promise(r=>setTimeout(r,600));
+    hideTyping();
+    appendMessage('assistant', offlineAnswer(q));
+    return;
+  }
+
+  // Online: call Claude API with full context
+  const messages=[
+    ...chatHistory.slice(0,-1).map(m=>({role:m.role==='user'?'user':'assistant', content:m.content})),
+    {role:'user', content:q}
+  ];
+
+  try {
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:200,
+        system:getSystemPrompt(),
+        messages
+      })
+    });
+    const data=await res.json();
+    const text=(data.content||[]).map(b=>b.text||'').join('').trim();
+    hideTyping();
+    if(text) appendMessage('assistant', text);
+    else throw new Error('empty');
+  } catch(e){
+    hideTyping();
+    isOnline=false;
+    document.getElementById('online-dot').className='online-dot offline';
+    document.getElementById('online-status').textContent='已切換離線';
+    appendMessage('assistant', offlineAnswer(q));
+  }
+}
+
+function sendQuick(q){
+  document.getElementById('chat-input').value=q;
+  sendChat();
+}
+
+// ── Init advisor ────────────────────────────────────────────────
+async function initAdvisor(){
+  if(chatInitialized) return;
+  chatInitialized=true;
+  chatHistory=[];
+  await checkOnline();
+  showTyping();
+  await new Promise(r=>setTimeout(r,700));
+  hideTyping();
+  const c=getMonthContext();
+  const mn=statsMonth.toLocaleDateString('zh-TW',{month:'long'});
+  let greeting;
+  if(c.totalIncome===0 && c.totalExpense===0){
+    greeting=`嗨！我是你的理財顧問 💡\n${mn}還沒有紀錄，記帳後我就能幫你分析財務狀況。有任何理財問題也歡迎直接問我！`;
+  } else if(isOnline){
+    // Quick AI-generated greeting
+    try {
+      const res=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-sonnet-4-6', max_tokens:120,
+          system:getSystemPrompt(),
+          messages:[{role:'user',content:'請用一句話打招呼，並給我一條本月最重要的財務提醒（不超過80字）'}]
+        })
+      });
+      const data=await res.json();
+      greeting=(data.content||[]).map(b=>b.text||'').join('').trim()||fallbackGreeting(c,mn);
+    } catch(e){ greeting=fallbackGreeting(c,mn); }
+  } else {
+    greeting=fallbackGreeting(c,mn);
+  }
+  appendMessage('assistant', greeting);
+}
+
+function fallbackGreeting(c,mn){
+  if(c.balance<0) return `嗨！${mn}目前支出超收入 NT$${Math.abs(c.balance).toLocaleString()}⚠️ 建議盡快調整支出，有問題隨時問我！`;
+  if(c.rate>=25) return `嗨！${mn}儲蓄率 ${c.rate}%，表現優秀 🎉 有任何理財問題歡迎發問！`;
+  return `嗨！我是你的理財顧問 💡 ${mn}儲蓄率 ${c.rate}%，歡迎問我任何財務建議！`;
+}
+
+// Reset advisor when month changes
+function resetAdvisor(){ chatInitialized=false; chatHistory=[]; renderChat(); }
+
+
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function resetAdvisor(){ chatInitialized=false; chatHistory=[]; renderChat(); }
+
+// Sample data
+if(!records.length){
+  const y=today.getFullYear(), m=today.getMonth()+1;
+  const p=n=>String(n).padStart(2,'0');
+  records=[
+    {id:1, date:`${y}-${p(m)}-01`, type:'income',  cat:'薪資',  amount:55000, note:'六月薪資'},
+    {id:2, date:`${y}-${p(m)}-02`, type:'expense', cat:'餐飲',  amount:280,   note:'午餐'},
+    {id:3, date:`${y}-${p(m)}-03`, type:'expense', cat:'交通',  amount:150,   note:'捷運'},
+    {id:4, date:`${y}-${p(m)}-05`, type:'expense', cat:'購物',  amount:1200,  note:'衣服'},
+    {id:5, date:`${y}-${p(m)}-07`, type:'income',  cat:'副業',  amount:8000,  note:'接案'},
+    {id:6, date:`${y}-${p(m)}-08`, type:'expense', cat:'娛樂',  amount:450,   note:'電影'},
+    {id:7, date:`${y}-${p(m)}-10`, type:'expense', cat:'餐飲',  amount:680,   note:'聚餐'},
+    {id:8, date:`${y}-${p(m)}-12`, type:'expense', cat:'住房',  amount:12000, note:'房租'},
+    {id:9, date:todayStr,          type:'expense', cat:'餐飲',  amount:320,   note:'早午餐'},
+    {id:10,date:todayStr,          type:'expense', cat:'交通',  amount:60,    note:'捷運'},
+  ];
+  save();
+  renderTodayRecords();
+}
+</script>
+</body>
+</html>
